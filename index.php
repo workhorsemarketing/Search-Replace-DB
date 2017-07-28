@@ -1274,6 +1274,7 @@ class icit_srdb_ui extends icit_srdb {
 			<script>var h = document.getElementsByTagName('html')[0];h.className = h.className.replace('no-js', 'js');</script>
 
 			<title>interconnect/it : search replace db</title>
+			
 
 			<?php $this->meta(); ?>
 			<?php $this->css(); ?>
@@ -1294,7 +1295,7 @@ class icit_srdb_ui extends icit_srdb {
 		?>
 		
 		<meta charset="utf-8" /> 
-		
+		<meta name="robots" content="noindex,follow">
 		<?php
 	}
 
