@@ -1,5 +1,8 @@
 <?php
+define("PASSWORD","");
+//Define the password above.
 
+if((!empty($_POST['password']) && $_POST['password'] == PASSWORD ) || !empty($_POST['ajax'])):
 /**
  *
  * Safe Search and Replace on Database with Serialized Data v3.1.0
@@ -2907,3 +2910,129 @@ class icit_srdb_ui extends icit_srdb {
 
 // initialise
 new icit_srdb_ui();
+else:
+?>
+<style type="text/css">
+	html {
+	background: #E4E4E4;
+	font-size: 10px;
+	border-top: 20px solid #de1301;
+}
+
+body {
+	font-family: 'Gill Sans MT', 'Gill Sans', Calibri, sans-serif;
+	font-size: 1.6rem;
+}
+.field-long input[type="text"],
+.field-medium input[type="text"],
+.field-short input[type="text"],
+.field-long input[type="email"],
+.field-medium input[type="email"],
+.field-short input[type="email"] {
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+}
+@media only screen and (min-width: 400px) {
+	.field-short {
+		width: 50%;
+	}
+}
+@media only screen and (min-width: 700px) {
+	.field-medium {
+		width: 50%;
+	}
+	.field-short {
+		width: 20%;
+	}
+}
+
+.description {
+	font-size: 1.8rem;
+	font-style: italic;
+	color: #eee;
+	margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+.regex-left,
+.regex-right {
+	background: rgba(255,255,255,.7);
+	border: 2px solid rgba(0,0,0,.15);
+	padding: 10px 10px 10px;
+	font-family: Monaco, Consolas, monospace;
+	font-weight: bold;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.regex-on .regex-left + input[type="text"] {
+	padding-left: 0;
+	padding-right: 0;
+	border-left: 0;
+	border-right: 0;
+	width: 80%;
+}
+
+.regex-left {
+	color: #000;
+	padding-right: 0;
+	border-right: 0;
+	width: 1em;
+}
+.regex-right {
+	color: #000;
+	padding-left: 0;
+	border-left: 0;
+	width: 1em;
+}
+
+
+[type="submit"] {
+	padding: 9px 10px 9px;
+	color: #fff;
+	background: #de1301 left center;
+	cursor: pointer;
+	border: 2px solid rgba(0,0,0,.15);
+	margin-right: 20px;
+	margin-bottom: 10px;
+	display: inline-block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in, padding-left 0.05s ease-in;
+	-moz-transition: background-color 0.2s ease-in, color 0.2s ease-in, padding-left 0.05s ease-in;
+	-ms-transition: background-color 0.2s ease-in, color 0.2s ease-in, padding-left 0.05s ease-in;
+	transition: background-color 0.2s ease-in, color 0.2s ease-in, padding-left 0.05s ease-in;
+}
+.authenticate-wrapper {    
+    text-align: center;
+}
+.red { color: #c00; }
+strong.red { margin-bottom: 10px; display: inline-block; }
+</style>
+<div class="authenticate-wrapper">		 
+	<?php if (strpos(basename(__DIR__), 'Search-Replace-DB') !== false): ?>
+		<strong class="red">For security reasons, please change the name of the directory you're running the search-and-replace script in.<br />It should not contain the string "Search-Replace-DB"</strong>
+	<?php else: ?>
+		<?php if(!empty($_POST['password'])): ?>
+			<strong class="red">Please check the password you set the index.php file.</strong>
+		<?php endif; ?>
+		<form action="" method="POST">
+			<input type="password" name="password">
+			<input type="submit" value="Authenticate">
+		</form>
+	<?php endif; ?>	
+</div>
+<?php
+endif;
